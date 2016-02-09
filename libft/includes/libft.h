@@ -6,13 +6,13 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 20:50:54 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/05 14:00:54 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/09 15:59:35 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define BUFF_SIZE 10
+# define BUFF_SIZE 1
 
 # include <stdlib.h>
 # include <unistd.h>
