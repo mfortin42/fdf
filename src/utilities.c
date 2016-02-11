@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utilities.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/09 12:55:51 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/11 15:22:13 by mfortin          ###   ########.fr       */
+/*   Created: 2016/02/11 14:55:29 by mfortin           #+#    #+#             */
+/*   Updated: 2016/02/11 15:18:51 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
 
-int	main(int argc, char **argv)
+void	ft_error(char *str)
 {
-	t_env	e;
-	int		i;
-	int		j;
+	ft_putstr_fd(str, 2);
+	exit(1);
+}
+
+void	ft_free_line_tab(char **str)
+{
+	char			*tmp;
+	unsigned int	i;
 
 	i = 0;
-	j = 0;
-	if (argc == 2)
+	while (str[i])
 	{
-		ft_parsing(&e, argv[1]);
-		e.mlx = mlx_init();
-		e.win = mlx_new_window(e.mlx, WIN_X, WIN_Y, "Fdf");
-		ft_print_grid(&e);
-		mlx_loop(e.mlx);
+		tmp = str[i];
+		free(tmp);
+		i++;
 	}
-	else
-		ft_error("error : pas le bon nombre d'arguments");
-	return (0);
+	free(str);
+}
+
+int		ft_size_tab(char **str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != NULL)
+		i++;
+	return (i);
 }
