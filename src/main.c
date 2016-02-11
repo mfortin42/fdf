@@ -6,11 +6,45 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:55:51 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/09 18:19:16 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/11 12:11:34 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
+
+void	ft_print_point(t_env *e, unsigned int y, unsigned int x)
+{
+	double	const_y;
+	double	const_x;
+
+	const_y = 0.1;
+	const_x = 0.1;
+	e->x_prim = -const_y * (double)(y) + const_x * (double)(x);
+	e->y_prim = -((double)e->v_tab[y][x] / 5) + (const_y / 2) * (double)(y) + (const_x / 2) * (double)(x);
+}
+
+void	ft_print_grid(t_env *e)
+{
+	unsigned int	y;
+	unsigned int	x;
+
+	y = 0;
+	e->zoom = 100;
+	e->ori_y = WIN_Y / 5 * 2;
+	e->ori_x = WIN_X / 5 * 2;
+	while (y < e->l_nbr)
+	{
+		x = 0;
+		while (x < e->c_nbr)
+		{
+			ft_print_point(e, y, x);
+			mlx_pixel_put(e->mlx, e->win, e->x_prim * e->zoom + e->ori_x,
+			e->y_prim * e->zoom + e->ori_y, 0xFF9900);
+			x++;
+		}
+		y++;
+	}
+}
 
 void	ft_error(char *str)
 {
@@ -121,6 +155,10 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		ft_parsing(&e, argv[1]);
+		e.mlx = mlx_init();
+		e.win = mlx_new_window(e.mlx, WIN_X, WIN_Y, "Fdf");
+		ft_print_grid(&e);
+		mlx_loop(e.mlx);
 	}
 	else
 		ft_error("error : pas le bon nombre d'arguments");
