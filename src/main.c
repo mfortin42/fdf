@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:55:51 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/11 15:22:13 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/11 22:20:09 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 		e.mlx = mlx_init();
 		e.win = mlx_new_window(e.mlx, WIN_X, WIN_Y, "Fdf");
 		ft_print_grid(&e);
+		mlx_key_hook(e.win, ft_exit_fdf, 0);
 		mlx_loop(e.mlx);
 	}
 	else

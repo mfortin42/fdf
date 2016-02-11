@@ -6,11 +6,18 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 14:55:29 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/11 15:18:51 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/11 22:20:01 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
+
+int	ft_exit_fdf(int keycode, void *param)
+{
+	if (keycode == 53)
+		exit(0);
+	return (0);
+}
 
 void	ft_error(char *str)
 {
