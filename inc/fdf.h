@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:37:48 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/12 14:49:25 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/12 15:58:48 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ typedef struct		s_env
 	int				y_next_prim1;
 	int				x_next_prim2;
 	int				y_next_prim2;
-
-//	int				xn;
-//	int				yn;
-//	int				dx;
-//	int				dy;
-//	int				sx;
-//	int				sy;
-
+/*
+	int				xn;
+	int				yn;
+	int				dx;
+	int				dy;
+	int				sx;
+	int				sy;
+*/
 }					t_env;
 
 t_env				*ft_parsing(t_env *e, char *file);
@@ -70,9 +70,9 @@ void				ft_print_point(t_env *e, unsigned int y, unsigned int x);
 //void				ft_draw(t_env *e, unsigned int y, unsigned int x);
 void				ft_print_grid(t_env *e);
 void				ft_print_point(t_env *e, unsigned int y, unsigned int x);
-//void				ft_print_next(t_env *e, unsigned int y, unsigned int x);
-//void				ft_print_next2(t_env *e, unsigned int y, unsigned int x);
-//void				ft_print_next3(t_env *e, unsigned int y, unsigned int x);
+void				ft_print_next(t_env *e, unsigned int y, unsigned int x);
+void				ft_print_next2(t_env *e, unsigned int y, unsigned int x);
+void				ft_print_next3(t_env *e, unsigned int y, unsigned int x);
 //void				ft_draw_line(int x2, int y2, t_env *e);
 
 int					ft_exit_fdf(int keycode, void *param);
