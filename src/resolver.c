@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/ ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   resolver.c                                         :+:      :+:    :+:   */
@@ -6,12 +6,12 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 15:20:35 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/11 22:17:54 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/12 14:55:36 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
-
+/*
 void	ft_draw(t_env *e, unsigned int y, unsigned int x)
 {
 	if (y < (e->l_nbr - 1) && x < (e->c_nbr - 1))
@@ -21,7 +21,7 @@ void	ft_draw(t_env *e, unsigned int y, unsigned int x)
 	else if (y < e->l_nbr - 1)
 		ft_print_next3(e, y, x); 
 }
-
+*/
 void	ft_print_grid(t_env *e)
 {
 	unsigned int y;
@@ -37,9 +37,9 @@ void	ft_print_grid(t_env *e)
 		while (x < e->c_nbr)
 		{
 			ft_print_point(e, y, x);
-			//	mlx_pixel_put(e->mlx, e->win, e->x_prim * e->zoom + e->ori_x,
-			//			e->y_prim * e->zoom + e->ori_y, 0xFFFF);
-			ft_draw(e, y, x);
+				mlx_pixel_put(e->mlx, e->win, e->x_prim * e->zoom + e->ori_x,
+						e->y_prim * e->zoom + e->ori_y, 0xFFFF);
+			//ft_draw(e, y, x);
 			x++;
 		}
 		y++;
@@ -51,9 +51,9 @@ void	ft_print_point(t_env *e, unsigned int y, unsigned int x)
 	e->const_y = 0.1;
 	e->const_x = 0.1;
 	e->x_prim = -e->const_y * (double)(y) + e->const_x * (double)(x);
-	e->y_prim = -((double)e->v_tab[y][x] / 50) + (e->const_y / 2) * (double)(y) + (e->const_x / 2) * (double)(x);
+	e->y_prim = -((double)e->v_tab[y][x] / 10) + (e->const_y / 2) * (double)(y) + (e->const_x / 2) * (double)(x);
 }
-
+/*
 void	ft_print_next(t_env *e, unsigned int y, unsigned int x)
 {
 	e->x_next = e->v_tab[y][x + 1];
@@ -81,7 +81,7 @@ void	ft_print_next3(t_env *e, unsigned int y, unsigned int x)
 	e->y_next_prim2 = -((double)e->y_next / 50) + (e->const_y / 2) * (double)(y) + (e->const_x / 2) * (double)(x + 1);
 	ft_draw_line((e->x_next_prim2 * e->zoom + e->ori_x) , (e->y_next_prim2 * e->zoom + e->ori_y), e);
 }
-/*
+
 void	ft_draw_line(int x2, int y2, t_env *e)
 {
 	int	err;

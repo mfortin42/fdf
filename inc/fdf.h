@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:37:48 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/11 22:19:11 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/12 14:49:25 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ void				ft_second_read(t_env *e, int fd);
 void				ft_print_grid(t_env *e);
 void				ft_print_point(t_env *e, unsigned int y, unsigned int x);
 
-void				ft_draw(t_env *e, unsigned int y, unsigned int x);
+//void				ft_draw(t_env *e, unsigned int y, unsigned int x);
 void				ft_print_grid(t_env *e);
 void				ft_print_point(t_env *e, unsigned int y, unsigned int x);
-void				ft_print_next(t_env *e, unsigned int y, unsigned int x);
-void				ft_print_next2(t_env *e, unsigned int y, unsigned int x);
-void				ft_print_next3(t_env *e, unsigned int y, unsigned int x);
+//void				ft_print_next(t_env *e, unsigned int y, unsigned int x);
+//void				ft_print_next2(t_env *e, unsigned int y, unsigned int x);
+//void				ft_print_next3(t_env *e, unsigned int y, unsigned int x);
 //void				ft_draw_line(int x2, int y2, t_env *e);
 
 int					ft_exit_fdf(int keycode, void *param);
