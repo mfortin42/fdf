@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:55:51 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/11 22:20:09 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/13 18:47:47 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	main(int argc, char **argv)
 		mlx_loop(e.mlx);
 	}
 	else
-		ft_error("error : pas le bon nombre d'arguments");
+		ft_error("error : pas le bon nombre d'arguments\n");
 	return (0);
 }
