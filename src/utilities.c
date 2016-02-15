@@ -12,11 +12,14 @@
 
 #include "../inc/fdf.h"
 
-int	ft_exit_fdf(int keycode, void *param)
+int		ft_exit_fdf(int keycode, t_env *e)
 {
-	param = NULL;
 	if (keycode == 53)
 		exit(0);
+	if (keycode == 69)
+		e->pow_z += 30;
+	if (keycode == 78)
+		e->pow_z -= 30;
 	return (0);
 }
 

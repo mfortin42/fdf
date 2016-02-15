@@ -6,10 +6,11 @@
 #    By: mfortin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/23 20:51:06 by mfortin           #+#    #+#              #
-#    Updated: 2016/02/15 21:20:40 by mfortin          ###   ########.fr        #
+#    Updated: 2016/02/15 21:52:30 by jgan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-G = -Wall -Wextra -Werror -O3
+
+FLAG = -Wall -Wextra -Werror -O3
 
 NAME = fdf
 
@@ -20,7 +21,7 @@ SRC = 	src/main.c \
 
 OBJ = $(SRC:.c=.o)
 
-MLX = -lmlx -framework OpenGL -framework AppKit
+MLX = -L minilibx_macos -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)
 

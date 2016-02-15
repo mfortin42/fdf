@@ -1,4 +1,4 @@
-/************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   resolver.c                                         :+:      :+:    :+:   */
@@ -12,7 +12,7 @@
 
 #include "../inc/fdf.h"
 
-void	ft_print_grid(t_env *e)
+int		ft_print_grid(t_env *e)
 {
 	unsigned int y;
 	unsigned int x;
@@ -31,6 +31,7 @@ void	ft_print_grid(t_env *e)
 		}
 		y++;
 	}
+	return (1);
 }
 
 void	ft_print_point(t_env *e, unsigned int y, unsigned int x)
@@ -38,7 +39,7 @@ void	ft_print_point(t_env *e, unsigned int y, unsigned int x)
 	e->const_y = 0.1;
 	e->const_x = 0.1;
 	e->x_prim = (-e->const_y * y + e->const_x * x) * e->zoom + e->ori_x;
-	e->y_prim = (-((float)e->v_tab[y][x] / POW_Z) + (e->const_y / 2) * y + (e->const_x / 2) * x) * e->zoom + e->ori_y;
+	e->y_prim = (-((float)e->v_tab[y][x] / e->pow_z) + (e->const_y / 2) * y + (e->const_x / 2) * x) * e->zoom + e->ori_y;
 	if (y < (e->l_nbr - 1) && x < (e->c_nbr - 1))
 	{
 		ft_print_next1(e, y, x);
@@ -54,7 +55,7 @@ void	ft_print_next1(t_env *e, unsigned int y, unsigned int x)
 {
 	e->x_next = e->v_tab[y][x + 1];
 	e->x_next_prim1 = (-e->const_y * y + e->const_x * (x + 1)) * e->zoom + e->ori_x;
-	e->y_next_prim1 = (-((float)e->x_next / POW_Z) + (e->const_y / 2) * y + (e->const_x / 2) * (x + 1)) * e->zoom + e->ori_y;
+	e->y_next_prim1 = (-((float)e->x_next / e->pow_z) + (e->const_y / 2) * y + (e->const_x / 2) * (x + 1)) * e->zoom + e->ori_y;
 	ft_draw_line(e->x_next_prim1, e->y_next_prim1, e);
 }
 
@@ -62,7 +63,7 @@ void	ft_print_next2(t_env *e, unsigned int y, unsigned int x)
 {
 	e->y_next = e->v_tab[y + 1][x];
 	e->x_next_prim2 = (-e->const_y * (y + 1) + e->const_x * x) * e->zoom + e->ori_x;
-	e->y_next_prim2 = (-((float)e->y_next / POW_Z) + (e->const_y / 2) * (y + 1) + (e->const_x / 2) * x) * e->zoom + e->ori_y;
+	e->y_next_prim2 = (-((float)e->y_next / e->pow_z) + (e->const_y / 2) * (y + 1) + (e->const_x / 2) * x) * e->zoom + e->ori_y;
 	ft_draw_line(e->x_next_prim2, e->y_next_prim2, e);
 }
 

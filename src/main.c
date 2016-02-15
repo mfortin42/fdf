@@ -22,11 +22,13 @@ int	main(int argc, char **argv)
 	j = 0;
 	if (argc == 2)
 	{
+		e.pow_z = 50;
 		ft_parsing(&e, argv[1]);
 		e.mlx = mlx_init();
 		e.win = mlx_new_window(e.mlx, WIN_X, WIN_Y, "Fdf");
-		ft_print_grid(&e);
-		mlx_key_hook(e.win, ft_exit_fdf, 0);
+		mlx_key_hook(e.win, ft_exit_fdf, &e);
+		mlx_clear_window(e.mlx, e.win);
+		mlx_loop_hook(e.mlx, ft_print_grid, &e);
 		mlx_loop(e.mlx);
 	}
 	else
