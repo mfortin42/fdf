@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 14:55:29 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/11 22:20:01 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/15 21:09:44 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	ft_exit_fdf(int keycode, void *param)
 {
+	param = NULL;
 	if (keycode == 53)
 		exit(0);
 	return (0);
@@ -40,9 +41,9 @@ void	ft_free_line_tab(char **str)
 	free(str);
 }
 
-int		ft_size_tab(char **str)
+unsigned int		ft_size_tab(char **str)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
 	while (str[i] != NULL)

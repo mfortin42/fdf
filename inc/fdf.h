@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:37:48 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/13 17:55:03 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/15 21:26:10 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 # define WIN_X 1920
 # define WIN_Y 1080
+# define POW_Z 50
 
 typedef struct		s_env
 {
@@ -35,9 +36,9 @@ typedef struct		s_env
 	char			**v_tab_tmp;
 	int				**v_tab;
 
-	int				zoom;
-	int				ori_x;
-	int				ori_y;
+	float				zoom;
+	float				ori_x;
+	float				ori_y;
 	float			const_y;
 	float			const_x;
 
@@ -62,13 +63,9 @@ typedef struct		s_env
 t_env				*ft_parsing(t_env *e, char *file);
 void				ft_first_read(t_env *e, int fd);
 void				ft_second_read(t_env *e, int fd);
-void				ft_print_grid(t_env *e);
-void				ft_print_point(t_env *e, unsigned int y, unsigned int x);
 
-//void				ft_draw(t_env *e, unsigned int y, unsigned int x);
 void				ft_print_grid(t_env *e);
 void				ft_print_point(t_env *e, unsigned int y, unsigned int x);
-//void				ft_print_next(t_env *e, unsigned int y, unsigned int x);
 void				ft_print_next1(t_env *e, unsigned int y, unsigned int x);
 void				ft_print_next2(t_env *e, unsigned int y, unsigned int x);
 void				ft_draw_line(int x2, int y2, t_env *e);
@@ -76,6 +73,6 @@ void				ft_draw_line(int x2, int y2, t_env *e);
 int					ft_exit_fdf(int keycode, void *param);
 void				ft_error(char *str);
 void				ft_free_line_tab(char **str);
-int					ft_size_tab(char **str);
+unsigned int					ft_size_tab(char **str);
 
 #endif
