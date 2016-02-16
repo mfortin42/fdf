@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 14:55:29 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/16 16:30:44 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/16 16:48:02 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ int		ft_exit_fdf(int keycode, t_env *e)
 	}
 	else if (keycode == 78)
 	{
-		if (e->pow_z > 31)
+		if (e->pow_z > 30)
+		{
 			e->pow_z -= 30;
-		mlx_clear_window(e->mlx, e->win);
-		ft_print_grid(e);
+			mlx_clear_window(e->mlx, e->win);
+			ft_print_grid(e);
+		}
 	}
 	else if (keycode == 123)
 	{
@@ -61,10 +63,12 @@ int		ft_exit_fdf(int keycode, t_env *e)
 	}
 	else if (keycode == 121)
 	{
-		if (e->zoom > 26)
+		if (e->zoom > 25)
+		{
 			e->zoom -= 25;
-		mlx_clear_window(e->mlx, e->win);
-		ft_print_grid(e);
+			mlx_clear_window(e->mlx, e->win);
+			ft_print_grid(e);
+		}
 	}
 	return (0);
 }

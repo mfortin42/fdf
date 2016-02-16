@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 15:20:35 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/16 16:34:58 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/16 16:47:18 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int		ft_print_grid(t_env *e)
 	unsigned int x;
 
 	y = 0;
-	e->zoom = (WIN_Y) / (((e->l_nbr) + (e->c_nbr)) / 10);
 	while (y < e->l_nbr)
 	{
 		x = 0;
