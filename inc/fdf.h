@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:37:48 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/15 21:32:22 by jgan             ###   ########.fr       */
+/*   Updated: 2016/02/17 22:28:13 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
-# include <errno.h>
 
-# define WIN_Y 720
-# define WIN_X WIN_Y * 16 / 9
+# define WIN_Y 1080
+# define WIN_X 1920
 
 typedef struct		s_env
 {
@@ -35,9 +34,9 @@ typedef struct		s_env
 	char			**v_tab_tmp;
 	int				**v_tab;
 
-	float				zoom;
-	float				ori_x;
-	float				ori_y;
+	float			zoom;
+	float			ori_x;
+	float			ori_y;
 	float			const_y;
 	float			const_x;
 
@@ -47,11 +46,13 @@ typedef struct		s_env
 	int				x_next;
 	int				y_next;
 
-	int			x_next_prim1;
-	int			y_next_prim1;
-	int			x_next_prim2;
-	int			y_next_prim2;
+	int				x_next_prim;
+	int				y_next_prim;
 
+	int				error;
+	int				tmp_error;
+	int				tmpx;
+	int				tmpy;
 	int				dx;
 	int				dy;
 	int				sx;
@@ -60,6 +61,7 @@ typedef struct		s_env
 	int				pow_z;
 }					t_env;
 
+void				ft_ini_val(t_env *e);
 t_env				*ft_parsing(t_env *e, char *file);
 void				ft_first_read(t_env *e, int fd);
 void				ft_second_read(t_env *e, int fd);
@@ -69,10 +71,11 @@ void				ft_print_point(t_env *e, unsigned int y, unsigned int x);
 void				ft_print_next1(t_env *e, unsigned int y, unsigned int x);
 void				ft_print_next2(t_env *e, unsigned int y, unsigned int x);
 void				ft_draw_line(int x2, int y2, t_env *e);
+void				ft_color(int x, int y, t_env *e);
 
 int					ft_exit_fdf(int keycode, t_env *e);
 void				ft_error(char *str);
 void				ft_free_line_tab(char **str);
-unsigned int					ft_size_tab(char **str);
+unsigned int		ft_size_tab(char **str);
 
 #endif
