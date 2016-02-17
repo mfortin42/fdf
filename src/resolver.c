@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 15:20:35 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/16 16:47:18 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/17 17:31:55 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	ft_draw_line(int x2, int y2, t_env *e)
 	e->sx = e->x_prim < x2 ? 1 : -1;
 	e->sy = e->y_prim < y2 ? 1 : -1;
 	err = (e->dx > e->dy ? e->dx : -(e->dy)) / 2;
-	while (e->y_prim != y2)
+	while (!(e->y_prim == y2 && e->x_prim == x2))
 	{
 		mlx_pixel_put(e->mlx, e->win, e->x_prim, e->y_prim, 0xFFFF);
 		e2 = err;
