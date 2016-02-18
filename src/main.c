@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:55:51 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/18 16:22:46 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/18 17:17:04 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_print_notice(void)
 	ft_putstr("      ------------------------------------------------\n\n\n");
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_env	e;
 
@@ -49,6 +49,6 @@ int	main(int argc, char **argv)
 		mlx_loop(e.mlx);
 	}
 	else
-		ft_error("error : pas le bon nombre d'arguments\n");
+		ft_error("error : wrong number of arguments\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 15:20:35 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/18 16:54:34 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/18 17:35:21 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_draw_line(int x2, int y2, t_env *e)
 	e->error = (e->dx > e->dy ? e->dx : -(e->dy)) / 2;
 	while (!(e->tmpy == y2 && e->tmpx == x2))
 	{
-		ft_color (e->tmpx, e->tmpy, e);
+		ft_color(e->tmpx, e->tmpy, e);
 		e->tmp_error = e->error;
 		if (e->tmp_error > -(e->dx))
 		{

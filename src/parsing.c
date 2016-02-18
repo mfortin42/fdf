@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 15:04:13 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/13 18:47:33 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/18 17:10:07 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void		ft_first_read(t_env *e, int fd)
 		free(line);
 	}
 	if (ver == -1)
-		ft_error("error: vous tentez de lire dans un dossier\n");
+		ft_error("error : you don't read a file\n");
 }
 
 void		ft_second_read(t_env *e, int fd)
@@ -68,7 +68,7 @@ void		ft_second_read(t_env *e, int fd)
 	{
 		e->v_tab_tmp = ft_strsplit(line, ' ');
 		if ((ft_size_tab(e->v_tab_tmp)) != e->c_nbr)
-			ft_error("error : pas le meme nombre de colonnes entre les lignes\n");
+			ft_error("error : wrong number of colums\n");
 		if ((e->v_tab[i] = (int *)malloc(sizeof(int) * e->c_nbr)) == NULL)
 			ft_error("error : malloc failed\n");
 		j = 0;
