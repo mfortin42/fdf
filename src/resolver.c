@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 15:20:35 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/17 22:55:43 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/18 16:54:34 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,24 @@ int		ft_print_grid(t_env *e)
 void	ft_print_point(t_env *e, unsigned int y, unsigned int x)
 {
 	e->x_prim = (-e->const_y * y + e->const_x * x) * e->zoom + e->ori_x;
-	e->y_prim = (-((float)e->v_tab[y][x] / e->pow_z) + (e->const_y / 2) * y + (e->const_x / 2) * x) * e->zoom + e->ori_y;
+	e->y_prim = (-((float)e->v_tab[y][x] / e->pow_z) + (e->const_y / 2) * y +
+				(e->const_x / 2) * x) * e->zoom + e->ori_y;
 	if (x < e->c_nbr - 1)
 	{
 		e->x_next = e->v_tab[y][x + 1];
-		e->x_next_prim = (-e->const_y * y + e->const_x * (x + 1)) * e->zoom + e->ori_x;
-		e->y_next_prim = (-((float)e->x_next / e->pow_z) + (e->const_y / 2) * y + (e->const_x / 2) * (x + 1)) * e->zoom + e->ori_y;
+		e->x_next_prim = (-e->const_y * y + e->const_x * (x + 1)) * e->zoom +
+						e->ori_x;
+		e->y_next_prim = (-((float)e->x_next / e->pow_z) + (e->const_y / 2) * y
+						+ (e->const_x / 2) * (x + 1)) * e->zoom + e->ori_y;
 		ft_draw_line(e->x_next_prim, e->y_next_prim, e);
 	}
 	if (y < e->l_nbr - 1)
 	{
 		e->y_next = e->v_tab[y + 1][x];
-		e->x_next_prim = (-e->const_y * (y + 1) + e->const_x * x) * e->zoom + e->ori_x;
-		e->y_next_prim = (-((float)e->y_next / e->pow_z) + (e->const_y / 2) * (y + 1) + (e->const_x / 2) * x) * e->zoom + e->ori_y;
+		e->x_next_prim = (-e->const_y * (y + 1) + e->const_x * x) * e->zoom +
+						e->ori_x;
+		e->y_next_prim = (-((float)e->y_next / e->pow_z) + (e->const_y / 2) *
+						(y + 1) + (e->const_x / 2) * x) * e->zoom + e->ori_y;
 		ft_draw_line(e->x_next_prim, e->y_next_prim, e);
 	}
 }
@@ -81,24 +86,20 @@ void	ft_color(int x, int y, t_env *e)
 {
 	if (e->x_next == 0)
 		mlx_pixel_put(e->mlx, e->win, x, y, 0xFFFFFF);
-	else if (e->x_next < 1)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x9CAFC6);
-	else if (e->x_next < 5)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x849BB8);
-	else if (e->x_next < 10)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x6B87A9);
-	else if (e->x_next < 20)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x52739B);
-	else if (e->x_next < 40)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x3A5F8D);
-	else if (e->x_next < 80)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x214B7F);
-	else if (e->x_next < 160)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x093871);
-	else if (e->x_next < 320)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x093871);
-	else if (e->x_next < 640)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x083265);
+	else if (e->x_next < 2)
+		mlx_pixel_put(e->mlx, e->win, x, y, 0x57CAFF);
+	else if (e->x_next < 4)
+		mlx_pixel_put(e->mlx, e->win, x, y, 0x4EB5E5);
+	else if (e->x_next < 8)
+		mlx_pixel_put(e->mlx, e->win, x, y, 0x45A1CC);
+	else if (e->x_next < 16)
+		mlx_pixel_put(e->mlx, e->win, x, y, 0x3C8DB2);
+	else if (e->x_next < 32)
+		mlx_pixel_put(e->mlx, e->win, x, y, 0x427999);
+	else if (e->x_next < 64)
+		mlx_pixel_put(e->mlx, e->win, x, y, 0x2B657F);
+	else if (e->x_next < 128)
+		mlx_pixel_put(e->mlx, e->win, x, y, 0x225066);
 	else
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x072C5A);
+		mlx_pixel_put(e->mlx, e->win, x, y, 0x1A3C4C);
 }
