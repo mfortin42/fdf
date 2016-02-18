@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 14:55:29 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/17 23:00:10 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/18 14:30:09 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ int		ft_exit_fdf(int keycode, t_env *e)
 {
 	if (keycode == 53)
 		exit(0);
-	else if (keycode == 69)
-		e->pow_z += 30;
 	else if (keycode == 78)
+		e->pow_z += 10;
+	else if (keycode == 69)
 	{
-		if (e->pow_z > 30)
-			e->pow_z -= 30;
+		if (e->pow_z > 10)
+			e->pow_z -= 10;
 	}
 	else if (keycode == 123)
 		e->ori_x -= 25;

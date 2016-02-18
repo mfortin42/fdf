@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:37:48 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/17 22:28:13 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/18 15:02:19 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_env
 {
 	void			*mlx;
 	void			*win;
+	void			*win2;
 	int				fd;
 
 	unsigned int	l_nbr;
