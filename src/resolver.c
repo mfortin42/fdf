@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 15:20:35 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/18 17:35:21 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/19 15:20:00 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ int		ft_print_grid(t_env *e)
 
 void	ft_print_point(t_env *e, unsigned int y, unsigned int x)
 {
+	e->actual_z = e->v_tab[y][x];
 	e->x_prim = (-e->const_y * y + e->const_x * x) * e->zoom + e->ori_x;
-	e->y_prim = (-((float)e->v_tab[y][x] / e->pow_z) + (e->const_y / 2) * y +
+	e->y_prim = (-((float)e->actual_z / e->pow_z) + (e->const_y / 2) * y +
 				(e->const_x / 2) * x) * e->zoom + e->ori_y;
 	if (x < e->c_nbr - 1)
 	{
@@ -43,7 +44,7 @@ void	ft_print_point(t_env *e, unsigned int y, unsigned int x)
 						e->ori_x;
 		e->y_next_prim = (-((float)e->x_next / e->pow_z) + (e->const_y / 2) * y
 						+ (e->const_x / 2) * (x + 1)) * e->zoom + e->ori_y;
-		ft_draw_line(e->x_next_prim, e->y_next_prim, e);
+		ft_draw_line(e->x_next_prim, e->y_next_prim, e, 1);
 	}
 	if (y < e->l_nbr - 1)
 	{
@@ -52,11 +53,11 @@ void	ft_print_point(t_env *e, unsigned int y, unsigned int x)
 						e->ori_x;
 		e->y_next_prim = (-((float)e->y_next / e->pow_z) + (e->const_y / 2) *
 						(y + 1) + (e->const_x / 2) * x) * e->zoom + e->ori_y;
-		ft_draw_line(e->x_next_prim, e->y_next_prim, e);
+		ft_draw_line(e->x_next_prim, e->y_next_prim, e, 0);
 	}
 }
 
-void	ft_draw_line(int x2, int y2, t_env *e)
+void	ft_draw_line(int x2, int y2, t_env *e, int direct)
 {
 	e->tmpx = e->x_prim;
 	e->tmpy = e->y_prim;
@@ -67,7 +68,7 @@ void	ft_draw_line(int x2, int y2, t_env *e)
 	e->error = (e->dx > e->dy ? e->dx : -(e->dy)) / 2;
 	while (!(e->tmpy == y2 && e->tmpx == x2))
 	{
-		ft_color(e->tmpx, e->tmpy, e);
+		ft_color(e->tmpx, e->tmpy, e, direct);
 		e->tmp_error = e->error;
 		if (e->tmp_error > -(e->dx))
 		{
@@ -82,23 +83,29 @@ void	ft_draw_line(int x2, int y2, t_env *e)
 	}
 }
 
-void	ft_color(int x, int y, t_env *e)
+void	ft_color(int x, int y, t_env *e, int direct)
 {
-	if (e->x_next == 0)
+	int calc;
+
+	if (direct > 0)
+		calc = (e->actual_z > e->x_next) ? x : e->x_next;
+	else
+		calc = (e->actual_z > e->y_next) ? x : e->y_next;
+	if (calc == 0)
 		mlx_pixel_put(e->mlx, e->win, x, y, 0xFFFFFF);
-	else if (e->x_next < 2)
+	else if (calc < 2)
 		mlx_pixel_put(e->mlx, e->win, x, y, 0x57CAFF);
-	else if (e->x_next < 4)
+	else if (calc < 4)
 		mlx_pixel_put(e->mlx, e->win, x, y, 0x4EB5E5);
-	else if (e->x_next < 8)
+	else if (calc < 8)
 		mlx_pixel_put(e->mlx, e->win, x, y, 0x45A1CC);
-	else if (e->x_next < 16)
+	else if (calc < 16)
 		mlx_pixel_put(e->mlx, e->win, x, y, 0x3C8DB2);
-	else if (e->x_next < 32)
+	else if (calc < 32)
 		mlx_pixel_put(e->mlx, e->win, x, y, 0x427999);
-	else if (e->x_next < 64)
+	else if (calc < 64)
 		mlx_pixel_put(e->mlx, e->win, x, y, 0x2B657F);
-	else if (e->x_next < 128)
+	else if (calc < 128)
 		mlx_pixel_put(e->mlx, e->win, x, y, 0x225066);
 	else
 		mlx_pixel_put(e->mlx, e->win, x, y, 0x1A3C4C);

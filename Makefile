@@ -6,7 +6,7 @@
 #    By: mfortin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/23 20:51:06 by mfortin           #+#    #+#              #
-#    Updated: 2016/02/15 21:52:30 by jgan             ###   ########.fr        #
+#    Updated: 2016/02/19 16:13:06 by mfortin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ NAME = fdf
 SRC = 	src/main.c \
 	  	src/parsing.c \
 		src/resolver.c \
-		src/utilities.c
+		src/utilities.c \
+		src/key_biding.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 15:04:13 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/18 17:10:07 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/19 15:47:39 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 t_env		*ft_parsing(t_env *e, char *file)
 {
-	if ((e->fd = open(file, O_RDONLY)) < 0)
+	int fd;
+
+	if ((fd = open(file, O_RDONLY)) < 0)
 		ft_error("error : open failed\n");
-	ft_first_read(e, e->fd);
-	if ((close(e->fd)) < 0)
+	ft_first_read(e, fd);
+	if ((close(fd)) < 0)
 		ft_error("error : close failed\n");
-	if ((e->fd = open(file, O_RDONLY)) < 0)
+	if ((fd = open(file, O_RDONLY)) < 0)
 		ft_error("error : open failed\n");
-	ft_second_read(e, e->fd);
-	if ((close(e->fd)) < 0)
+	ft_second_read(e, fd);
+	if ((close(fd)) < 0)
 		ft_error("error : close failed\n");
 	return (e);
 }
