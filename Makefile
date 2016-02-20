@@ -6,7 +6,7 @@
 #    By: mfortin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/23 20:51:06 by mfortin           #+#    #+#              #
-#    Updated: 2016/02/19 16:13:06 by mfortin          ###   ########.fr        #
+#    Updated: 2016/02/20 16:46:13 by mfortin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ FLAG = -Wall -Wextra -Werror -O3
 NAME = fdf
 
 SRC = 	src/main.c \
-	  	src/parsing.c \
+		src/parsing.c \
 		src/resolver.c \
 		src/utilities.c \
 		src/key_biding.c

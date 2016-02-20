@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 16:03:44 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/20 16:38:54 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/20 17:12:55 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	ft_do_key_action(t_env *e)
 	if (e->ud)
 		(e->ud == 1 ? (e->ori_y -= 10) : (e->ori_y += 10));
 	if (e->p_ud == 1)
-		e->zoom += 10;
-	if (e->p_ud == -1 && e->zoom > 10)
-		e->zoom -= 10;
+		e->zoom += 5;
+	if (e->p_ud == -1 && e->zoom > 5)
+		e->zoom -= 5;
 	if (e->ml == 1 && e->pow_z > 10)
 		e->pow_z -= 2;
 	if (e->ml == -1)

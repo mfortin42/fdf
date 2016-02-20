@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 15:20:35 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/20 16:44:03 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/20 17:14:15 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,28 +95,28 @@ void	ft_color(int x, int y, t_env *e, int direct)
 		ft_put_pixel(e, x, y, 0xFFFFFF);
 //		mlx_pixel_put(e->mlx, e->win, x, y, 0xFFFFFF);
 	else if (calc < 2)
-		ft_put_pixel(e, x, y, 0xFFFFFF);
+		ft_put_pixel(e, x, y, 0x57CAFF);
 //		mlx_pixel_put(e->mlx, e->win, x, y, 0x57CAFF);
 	else if (calc < 4)
-		ft_put_pixel(e, x, y, 0xFFFFFF);
+		ft_put_pixel(e, x, y, 0x4EB5E5);
 //		mlx_pixel_put(e->mlx, e->win, x, y, 0x4EB5E5);
 	else if (calc < 8)
-		ft_put_pixel(e, x, y, 0xFFFFFF);
+		ft_put_pixel(e, x, y, 0x45A1CC);
 //		mlx_pixel_put(e->mlx, e->win, x, y, 0x45A1CC);
 	else if (calc < 16)
-		ft_put_pixel(e, x, y, 0xFFFFFF);
+		ft_put_pixel(e, x, y, 0x3C8DB2);
 //		mlx_pixel_put(e->mlx, e->win, x, y, 0x3C8DB2);
 	else if (calc < 32)
-		ft_put_pixel(e, x, y, 0xFFFFFF);
+		ft_put_pixel(e, x, y, 0x427999);
 //		mlx_pixel_put(e->mlx, e->win, x, y, 0x427999);
 	else if (calc < 64)
-		ft_put_pixel(e, x, y, 0xFFFFFF);
+		ft_put_pixel(e, x, y, 0x2B657F);
 //		mlx_pixel_put(e->mlx, e->win, x, y, 0x2B657F);
 	else if (calc < 128)
-		ft_put_pixel(e, x, y, 0xFFFFFF);
+		ft_put_pixel(e, x, y, 0x225066);
 //		mlx_pixel_put(e->mlx, e->win, x, y, 0x225066);
 	else
-		ft_put_pixel(e, x, y, 0xFFFFFF);
+		ft_put_pixel(e, x, y, 0x1A3C4C);
 //		mlx_pixel_put(e->mlx, e->win, x, y, 0x1A3C4C);
 }
 
@@ -124,7 +124,7 @@ void	ft_put_pixel(t_env *e, int x, int y, int color)
 {
 	int	*tmp;
 
-	if (y <= WIN_Y || x <= WIN_X || x < 0 || y < 0)
+	if (y >= WIN_Y || x >= WIN_X || x < 0 || y < 0)
 		return ;
 	tmp = (int *)&e->imc[(y * e->imlen) + (x * (e->bpp / 8))];
 	*tmp = color;
