@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 16:03:44 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/19 16:42:08 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/20 16:38:54 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,11 @@ void	ft_do_key_action(t_env *e)
 
 int		ft_key_core(t_env *e)
 {
-	mlx_clear_window(e->mlx, e->win);
+	mlx_destroy_image(e->mlx, e->im);
+	e->im = mlx_new_image(e->mlx, WIN_X, WIN_Y);
+//	mlx_clear_window(e->mlx, e->win);
 	ft_do_key_action(e);
 	ft_print_grid(e);
-	return (0);
+	mlx_put_image_to_window(e->mlx, e->win, e->im, 0, 0);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:37:48 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/19 16:45:22 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/20 16:12:43 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ typedef struct		s_env
 {
 	void			*mlx;
 	void			*win;
+
+	void			*im;
+	char			*imc;
+	int				bpp;
+	int				imlen;
+	int				endi;
 
 	unsigned int	l_nbr;
 	unsigned int	c_nbr;
@@ -101,5 +107,6 @@ void				ft_color(int x, int y, t_env *e, int direct);
 void				ft_error(char *str);
 void				ft_free_line_tab(char **str);
 unsigned int		ft_size_tab(char **str);
+void				ft_put_pixel(t_env *e, int x, int y, int color);
 
 #endif

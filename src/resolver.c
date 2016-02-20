@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 15:20:35 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/19 15:20:00 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/20 16:44:03 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,21 +92,47 @@ void	ft_color(int x, int y, t_env *e, int direct)
 	else
 		calc = (e->actual_z > e->y_next) ? x : e->y_next;
 	if (calc == 0)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0xFFFFFF);
+		ft_put_pixel(e, x, y, 0xFFFFFF);
+//		mlx_pixel_put(e->mlx, e->win, x, y, 0xFFFFFF);
 	else if (calc < 2)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x57CAFF);
+		ft_put_pixel(e, x, y, 0xFFFFFF);
+//		mlx_pixel_put(e->mlx, e->win, x, y, 0x57CAFF);
 	else if (calc < 4)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x4EB5E5);
+		ft_put_pixel(e, x, y, 0xFFFFFF);
+//		mlx_pixel_put(e->mlx, e->win, x, y, 0x4EB5E5);
 	else if (calc < 8)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x45A1CC);
+		ft_put_pixel(e, x, y, 0xFFFFFF);
+//		mlx_pixel_put(e->mlx, e->win, x, y, 0x45A1CC);
 	else if (calc < 16)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x3C8DB2);
+		ft_put_pixel(e, x, y, 0xFFFFFF);
+//		mlx_pixel_put(e->mlx, e->win, x, y, 0x3C8DB2);
 	else if (calc < 32)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x427999);
+		ft_put_pixel(e, x, y, 0xFFFFFF);
+//		mlx_pixel_put(e->mlx, e->win, x, y, 0x427999);
 	else if (calc < 64)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x2B657F);
+		ft_put_pixel(e, x, y, 0xFFFFFF);
+//		mlx_pixel_put(e->mlx, e->win, x, y, 0x2B657F);
 	else if (calc < 128)
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x225066);
+		ft_put_pixel(e, x, y, 0xFFFFFF);
+//		mlx_pixel_put(e->mlx, e->win, x, y, 0x225066);
 	else
-		mlx_pixel_put(e->mlx, e->win, x, y, 0x1A3C4C);
+		ft_put_pixel(e, x, y, 0xFFFFFF);
+//		mlx_pixel_put(e->mlx, e->win, x, y, 0x1A3C4C);
 }
+
+void	ft_put_pixel(t_env *e, int x, int y, int color)
+{
+	int	*tmp;
+
+	if (y <= WIN_Y || x <= WIN_X || x < 0 || y < 0)
+		return ;
+	tmp = (int *)&e->imc[(y * e->imlen) + (x * (e->bpp / 8))];
+	*tmp = color;
+}
+
+
+
+
+
+
+

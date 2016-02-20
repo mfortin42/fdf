@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:55:51 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/19 16:46:53 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/20 16:08:50 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int		main(int argc, char **argv)
 		ft_ini_val(&e);
 		e.mlx = mlx_init();
 		e.win = mlx_new_window(e.mlx, WIN_X, WIN_Y, "Fdf");
+		e.im = mlx_new_image(e.mlx, WIN_X, WIN_Y);
+		e.imc = mlx_get_data_addr(e.im, &e.bpp, &e.imlen, &e.endi);
 		ft_print_settings();
 		ft_print_grid(&e);
 		mlx_hook(e.win, KEYPRESS, KEYPRESSMASK, ft_key_biding, &e);
