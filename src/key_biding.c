@@ -66,7 +66,6 @@ int		ft_key_core(t_env *e)
 {
 	mlx_destroy_image(e->mlx, e->im);
 	e->im = mlx_new_image(e->mlx, WIN_X, WIN_Y);
-//	mlx_clear_window(e->mlx, e->win);
 	ft_do_key_action(e);
 	ft_print_grid(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->im, 0, 0);
