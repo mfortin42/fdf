@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 14:55:29 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/20 20:35:56 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/22 15:02:12 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 void				ft_ini_val(t_env *e)
 {
-	e->zoom = (WIN_Y) / (((e->l_nbr) + (e->c_nbr)) / 10);
+	int tmp;
+
+	tmp = e->l_nbr + e->c_nbr;
+	if (tmp < 10)
+		tmp = 10;
+	e->zoom = (WIN_Y) / (tmp / 10);
 	e->ori_x = WIN_X / 5 * 2.5;
 	e->ori_y = WIN_Y / 5 * 2;
 	e->const_x = 0.1;

@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 15:20:35 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/20 17:14:15 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/22 22:24:36 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	ft_print_point(t_env *e, unsigned int y, unsigned int x)
 	e->x_prim = (-e->const_y * y + e->const_x * x) * e->zoom + e->ori_x;
 	e->y_prim = (-((float)e->actual_z / e->pow_z) + (e->const_y / 2) * y +
 				(e->const_x / 2) * x) * e->zoom + e->ori_y;
+	if (e->c_nbr == 1 && e->l_nbr == 1)
+		ft_put_pixel(e, e->x_prim, e->y_prim, 0xFFFFFF);
 	if (x < e->c_nbr - 1)
 	{
 		e->x_next = e->v_tab[y][x + 1];

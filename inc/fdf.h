@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:37:48 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/20 16:12:43 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/22 22:07:16 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void				ft_ini_val(t_env *e);
 t_env				*ft_parsing(t_env *e, char *file);
 void				ft_first_read(t_env *e, int fd);
 void				ft_second_read(t_env *e, int fd);
+void				ft_check_char_print(char *str);
 void				ft_print_settings(void);
 
 int					ft_print_grid(t_env *e);
