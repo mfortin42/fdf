@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 12:37:48 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/22 22:31:51 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/22 22:43:04 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FDF_H
 
 # include "../libft/includes/libft.h"
-# include "../minilibx/mlx.h"
+# include <mlx.h>
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>

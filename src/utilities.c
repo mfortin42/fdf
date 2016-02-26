@@ -6,7 +6,7 @@
 /*   By: mfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 14:55:29 by mfortin           #+#    #+#             */
-/*   Updated: 2016/02/22 15:02:12 by mfortin          ###   ########.fr       */
+/*   Updated: 2016/02/24 15:27:15 by mfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void				ft_ini_val(t_env *e)
 
 void				ft_print_settings(void)
 {
-	ft_putstr("\n\n      ================================================");
-	ft_putstr("\n      |           WELCOLME TO WORLD OF FDF           |\n");
-	ft_putstr("      ================================================\n\n");
+	ft_putstr("\n\n      ################################################");
+	ft_putstr("\n      #           WELCOLME TO WORLD OF FDF           #\n");
+	ft_putstr("      ################################################\n\n");
 	ft_putstr("              HERE'S HOW TO INTERACT WITH FDF:\n");
 	ft_putstr("      ------------------------------------------------\n");
 	ft_putstr("      |       KEY       |           ACTION           |\n");
