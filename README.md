@@ -1,4 +1,5 @@
 # fdf
 A software that creates a 3D version out of a map.
 
-Final grade : 125/100.
+
+![alt text](desktop/fdf01.png "Description goes here")
